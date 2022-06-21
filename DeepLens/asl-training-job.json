@@ -1,0 +1,91 @@
+{
+    "TrainingJobName": "asl-image-classification-1",
+    "HyperParameters": {
+        "epochs": "2",
+        "image_shape": "3,200,200",
+        "learning_rate": "0.01",
+        "mini_batch_size": "109",
+        "num_classes": "29",
+        "num_layers": "34",
+        "num_training_samples": "78311",
+        "optimizer": "sgd",
+        "precision_dtype": "float32",
+        "use_pretrained_model": "1"
+    },
+    "AlgorithmSpecification": {
+        "TrainingImage": "<AWS_Account_ID>.dkr.ecr.us-east-1.amazonaws.com/image-classification:latest",
+        "TrainingInputMode": "Pipe",
+        "MetricDefinitions": [
+            {
+                "Name": "train:accuracy",
+                "Regex": "Epoch\\S* Train-accuracy=(\\S*)"
+            },
+            {
+                "Name": "validation:accuracy",
+                "Regex": "Epoch\\S* Validation-accuracy=(\\S*)"
+            },
+            {
+                "Name": "train:accuracy:epoch",
+                "Regex": "Epoch\\S* Train-accuracy=(\\S*)"
+            },
+            {
+                "Name": "validation:accuracy:epoch",
+                "Regex": "Epoch\\S* Validation-accuracy=(\\S*)"
+            }
+        ],
+        "EnableSageMakerMetricsTimeSeries": true
+    },
+    "RoleArn": "arn:aws:iam::<AWS_Account_ID>:role/service-role/AmazonSageMaker-ExecutionRole",
+    "InputDataConfig": [
+        {
+            "ChannelName": "train",
+            "DataSource": {
+                "S3DataSource": {
+                    "S3DataType": "AugmentedManifestFile",
+                    "S3Uri": "s3://sagemaker-deeplens-<account>-<region>/asl-dataset/train-manifest.json",
+                    "S3DataDistributionType": "FullyReplicated",
+                    "AttributeNames": [
+                        "source-ref",
+                        "class"
+                    ]
+                }
+            },
+            "ContentType": "application/x-image",
+            "CompressionType": "None",
+            "RecordWrapperType": "RecordIO",
+            "InputMode": "Pipe"
+        },
+        {
+            "ChannelName": "validation",
+            "DataSource": {
+                "S3DataSource": {
+                    "S3DataType": "AugmentedManifestFile",
+                    "S3Uri": "s3://sagemaker-deeplens-<account>-<region>/asl-dataset/validate-manifest.json",
+                    "S3DataDistributionType": "FullyReplicated",
+                    "AttributeNames": [
+                        "source-ref",
+                        "class"
+                    ]
+                }
+            },
+            "ContentType": "application/x-image",
+            "CompressionType": "None",
+            "RecordWrapperType": "RecordIO"
+        }
+    ],
+    "OutputDataConfig": {
+        "S3OutputPath": "s3://sagemaker-deeplens-<account>-<region>/asl-output/"
+    },
+    "ResourceConfig": {
+        "InstanceType": "ml.p3.8xlarge",
+        "InstanceCount": 1,
+        "VolumeSizeInGB": 50
+    },
+    "StoppingCondition": {
+        "MaxRuntimeInSeconds": 3600,
+        "MaxWaitTimeInSeconds": 3600
+    },
+    "EnableNetworkIsolation": true,
+    "EnableInterContainerTrafficEncryption": true,
+    "EnableManagedSpotTraining": true
+}

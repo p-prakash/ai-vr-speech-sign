@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved. SPDX-License-Identifier: MIT-0
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>re:Invent - Builder's Fair Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.517.0.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta24/shoelace.css">
+  </head>
+
+  <body>
+    <script type="text/javascript">
+    function dropdown_text(selected)
+    {
+      AWS.config.update({region: 'us-east-1'});
+      AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+        IdentityPoolId: 'us-east-1:<IDENTITY_POOL_ID>'
+      });
+      var Url = 'https://<APIGW_ID>.execute-api.us-east-1.amazonaws.com/prod/languages?lang=' + selected
+      var ddb = new AWS.DynamoDB();
+      $.get(Url, function(langData, status){
+        var params = {
+          Item: {
+            "Id": {"S": "latest"},
+            "text": {"S": "Welcome"},
+            "translate": {"S": selected},
+            "translatedtext": {"S": "Welcome"},
+            "voice": {"S": langData.voice}
+          },
+          TableName: 'speech-data',
+          ReturnValues: 'ALL_OLD'
+        };
+        ddb.putItem(params, function(err, oldData) {
+          if (err) {
+            var display_text = 'Failed to set the language, check the logs';
+            console.log(err, err.stack);
+          }
+          else {
+            var display_text = "<h4>Content will be presented in <b>" + langData.language + "</b></h4>";
+            console.log(oldData)
+          }
+          document.getElementById("divdrop").innerHTML = display_text;
+        });
+      });
+    }
+    </script>
+    <div id="error" class="isa_error"></div>
+    <div class="tleft">
+      <h3>Select the language that you want to listen on:
+      <button name=dropdown_form style="width:150px;">
+          <select onChange="dropdown_text(this.value)" name="languages">
+            <option id="en" value="en">English</option>
+            <option id="ar" value="ar">Arabic</option>
+            <option id="zh" value="zh">Chinese</option>
+            <option id="da" value="da">Danish</option>
+            <option id="nl" value="nl">Dutch</option>
+            <option id="fr" value="fr">French</option>
+            <option id="de" value="de">German</option>
+            <option id="hi" value="hi">Hindi</option>
+            <option id="it" value="it">Italian</option>
+            <option id="ja" value="ja">Japanese</option>
+            <option id="ko" value="ko">Korean</option>
+            <option id="no" value="no">Norwegian</option>
+            <option id="pl" value="pl">Polish</option>
+            <option id="pt" value="pt">Portuguese</option>
+            <option id="ru" value="ru">Russian</option>
+            <option id="es" value="es">Spanish</option>
+            <option id="sv" value="sv">Swedish</option>
+            <option id="tr" value="tr">Turkish</option>
+          </select>
+      </button>
+      </h3>
+      <div id = "divdrop"></div>
+    </div>
+    <div class="tright">
+        <textarea id="transcript" placeholder="Press Start and speak into your mic" rows="2" cols="50"
+              readonly="readonly"></textarea>
+        <button id="start-button" class="button-xl" title="Start Transcription">
+            <i class="fa fa-microphone"></i> Start
+        </button>
+        <button id="stop-button" class="button-xl" title="Stop Transcription" disabled="true"><i
+                class="fa fa-stop-circle"></i> Stop
+        </button>
+        <button id="reset-button" class="button-xl button-secondary" title="Clear Transcript"> 
+            Clear Transcript
+        </button>
+        <button id="submit-button" class="button-xl" title="Submit Transcript"> 
+            Submit
+        </button>
+    </div>
+    <div class="bleft">
+      <iframe src="https://<SUMERIAN_ID>.us-east-1.sumerian.aws/" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="bright">
+      <iframe src="https://<SUMERIAN_ID>.us-east-1.sumerian.aws" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <script src="dist/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,349 @@
+{
+    "RequestItems": {
+        "asl-languages": [
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Joanna"
+                        },
+                        "language": {
+                            "S": "English"
+                        },
+                        "polly":{
+                            "S": "en-US"
+                        },
+                        "translate":{
+                            "S": "en"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Matthew"
+                        },
+                        "language": {
+                            "S": "Arabic"
+                        },
+                        "polly":{
+                            "S": "arb"
+                        },
+                        "translate":{
+                            "S": "ar"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Zhiyu"
+                        },
+                        "language": {
+                            "S": "Chinese"
+                        },
+                        "polly":{
+                            "S": "cmn-CN"
+                        },
+                        "translate":{
+                            "S": "zh"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Naja"
+                        },
+                        "language": {
+                            "S": "Danish"
+                        },
+                        "polly":{
+                            "S": "da-DK"
+                        },
+                        "translate":{
+                            "S": "da"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Lotte"
+                        },
+                        "language": {
+                            "S": "Dutch"
+                        },
+                        "polly":{
+                            "S": "nl-NL"
+                        },
+                        "translate":{
+                            "S": "nl"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Celine"
+                        },
+                        "language": {
+                            "S": "French"
+                        },
+                        "polly":{
+                            "S": "fr-FR"
+                        },
+                        "translate":{
+                            "S": "fr"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Vicki"
+                        },
+                        "language": {
+                            "S": "German"
+                        },
+                        "polly":{
+                            "S": "de-DE"
+                        },
+                        "translate":{
+                            "S": "de"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Aditi"
+                        },
+                        "language": {
+                            "S": "Hindi"
+                        },
+                        "polly":{
+                            "S": "hi-IN"
+                        },
+                        "translate":{
+                            "S": "hi"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Bianca"
+                        },
+                        "language": {
+                            "S": "Italian"
+                        },
+                        "polly":{
+                            "S": "it-IT"
+                        },
+                        "translate":{
+                            "S": "it"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Mizuki"
+                        },
+                        "language": {
+                            "S": "Japanese"
+                        },
+                        "polly":{
+                            "S": "ja-JP"
+                        },
+                        "translate":{
+                            "S": "ja"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Seoyeon"
+                        },
+                        "language": {
+                            "S": "Korean"
+                        },
+                        "polly":{
+                            "S": "ko-KR"
+                        },
+                        "translate":{
+                            "S": "ko"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Liv"
+                        },
+                        "language": {
+                            "S": "Norwegian"
+                        },
+                        "polly":{
+                            "S": "nb-NO"
+                        },
+                        "translate":{
+                            "S": "no"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Ewa"
+                        },
+                        "language": {
+                            "S": "Polish"
+                        },
+                        "polly":{
+                            "S": "pl-PL"
+                        },
+                        "translate":{
+                            "S": "pl"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Ines"
+                        },
+                        "language": {
+                            "S": "Portuguese"
+                        },
+                        "polly":{
+                            "S": "pt-PT"
+                        },
+                        "translate":{
+                            "S": "pt"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Tatyana"
+                        },
+                        "language": {
+                            "S": "Russian"
+                        },
+                        "polly":{
+                            "S": "ru-RU"
+                        },
+                        "translate":{
+                            "S": "ru"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Lucia"
+                        },
+                        "language": {
+                            "S": "Spanish"
+                        },
+                        "polly":{
+                            "S": "es-ES"
+                        },
+                        "translate":{
+                            "S": "es"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Astrid"
+                        },
+                        "language": {
+                            "S": "Swedish"
+                        },
+                        "polly":{
+                            "S": "sv-SE"
+                        },
+                        "translate":{
+                            "S": "sv"
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Filiz"
+                        },
+                        "language": {
+                            "S": "Turkish"
+                        },
+                        "polly":{
+                            "S": "tr-TR"
+                        },
+                        "translate":{
+                            "S": "tr"
+                        }
+                    }
+                }
+            }
+            ,
+            {
+                "PutRequest": {
+                    "Item": {
+                        "voice": {
+                            "S": "Carmen"
+                        },
+                        "language": {
+                            "S": "Romanian"
+                        },
+                        "polly":{
+                            "S": "ro-RO"
+                        },
+                        "translate":{
+                            "S": "ro"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,87 @@
+.tleft { background: #cbcaca; position: absolute; top: 0; left: 0; right: 50%; bottom: 80%; 
+      border:solid #000; border-width: 0 1px 0 0; }
+.tright { background: #cbcaca; position: absolute; top: 0; left: 50%; right: 0; bottom: 80%; 
+      border:solid #000; border-width: 0 0 0 0; }
+.bleft { position: absolute; top: 20%; left: 0; right: 50%; bottom: 0; 
+      border:solid #000; border-width: 0 1px 0 0; }
+.bright { position: absolute; top: 20%; left: 50%; right: 0; bottom: 0; 
+       } 
+
+#transcript {
+      margin: 30px 0;
+      white-space: pre-wrap;
+}
+
+#start-button,
+#stop-button {
+      margin: 5px 0;
+}
+
+#error {
+      padding: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1.4rem;
+      border-radius: 5px 5px 5px 5px;
+      color: #D8000C;
+      background-color: #FFD2D2;
+      display: none;
+}
+
+.isa_error i {
+      margin: 2px 12px;
+      font-size: 1.5em;
+      vertical-align: middle;
+}
+
+.small-caps {
+      font-variant: small-caps;
+}
+
+.internal {
+      width: 100%;
+      height: 100%;
+  }
+
+.bleft iframe { display:block; width:100%; height:100%;}
+.bright iframe { display:block; width:100%; height:100%;}
+
+select {
+      background: #cbcaca;
+}
+
+select option[value="2"] {
+      background: #cbcaca;
+}
+
+select option[value="3"] {
+      background: #cbcaca;
+}
+
+select option[value="4"] {
+      background: #cbcaca;
+}
+
+.myButton {
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:8px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:19px;
+	padding:12px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+.myButton:active {
+	position:absolute;
+	top:1px;
+}
